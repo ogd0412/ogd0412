@@ -8,7 +8,45 @@
     <link rel="stylesheet" href="StyleSheet1.css">
 </head>
 <body>
-     
+     <!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="StyleSheet1.css">
+</head>
+<body>
+
+
+    <h1>9만 에이커 랭섭 정보 웹사이트 </h1>
+    <div class="square"></div>
+    <input type="text" id="player_name_text" placeholder="player name">
+    <button onclick="search_name()">enter</button>
+    <p>  </p>
+    <input type="number" id="position_x_text" placeholder="position_x">
+    <input type="number" id="position_y_text" placeholder="position_y">
+    <button onclick="search_position()">enter</button>
+    <p>  </p>
+    <div style="display: flex; gap: 10px">
+        <button onclick=" union_search(union_type.none); " class="none_button">none</button>
+        <button onclick=" union_search(union_type.VAERTSHUS); " class="type1_button">type1</button>
+        <button onclick=" union_search(union_type.Volcano); " class="type2_button">type2</button>
+        <button onclick=" union_search(union_type.japanese_1); " class="type3_button">type3</button>
+        <button onclick=" union_search(union_type.type4); " class="type4_button">type4</button>
+        <button onclick=" union_search(union_type.type5); " class="type5_button">type5</button>
+        <button onclick=" union_search(union_type.type6); " class="type6_button">type6</button>
+        <button onclick=" union_search(union_type.type7); " class="type7_button">type7</button>
+        <button onclick=" union_search(union_type.type8); " class="type8_button">type8</button>
+    </div>
+    <p> if you click the small square button, you can see the position and nikename </p>
+    <script src="Script1.js" charset="utf-8"></script>
+</body>    
+
+
+
+</html>
 
     <h1>9만 에이커 랭섭 정보 웹사이트 </h1>
     <div class="square"></div>
