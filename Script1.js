@@ -1,3 +1,6 @@
+ // JavaScript source code
+
+const start_x = 30; //시작과 끝좌표, 웹 에서
 const final_x = 625;
 
 const start_y = 90;
@@ -478,4 +481,4 @@ function search_position() {
     }
     search(player_nike_name);
 }
-  
+   
