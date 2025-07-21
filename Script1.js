@@ -1,6 +1,3 @@
-// JavaScript source code
-
-const start_x = 30; //시작과 끝좌표, 웹 에서
 const final_x = 625;
 
 const start_y = 90;
@@ -260,8 +257,81 @@ const data_base =    ///길드,이름,x좌표,y좌표,문서 링크, 길드 간�
         [union_type.none, 'How to basic', 196, 580, 'http', false],
         [union_type.none, 'omwado', 85, 578, 'http', false],
         [union_type.none, 'cac di bo', 55, 586, 'http', false],
-        [union_type.none, 'PsionCat', 40, 583, 'http', false]
-        
+        [union_type.none, 'PsionCat', 40, 583, 'http', false],
+        [union_type.none, '小小糖国', 102, 590, 'http', false],
+        [union_type.none, '草泥马', 132, 583, 'http', false],
+        [union_type.none, '無鳴', 440, 577, 'http', false],
+        [union_type.none, '叱鬼', 504, 582, 'http', false],
+        [union_type.none, '8-1操', 75, 542, 'http', false],
+        [union_type.none, '星修2', 146, 557, 'http', false],
+        [union_type.none, '超級大哭', 181, 559, 'http', false],
+        [union_type.none, '恆', 363, 549, 'http', false],
+        [union_type.none, '鑫冰林', 466, 560, 'http', false],
+        [union_type.none, '嫑好', 481, 560, 'http', false],
+        [union_type.none, '哈密瓜0603', 543, 555, 'http', false],
+        [union_type.none, '很想耕田吧', 22, 475, 'http', false],
+        [union_type.none, '大花咲豐草', 36, 471, 'http', false],
+        [union_type.none, '伊姆龙 Imron', 120, 474, 'http', false],
+        [union_type.none, '媽錯', 207, 467, 'http', false],
+        [union_type.none, '挖人', 214, 499, 'http', false],
+        [union_type.none, '小吳 道心破碎', 254, 476, 'http', false],
+        [union_type.none, 'ผมคนดี', 264, 493, 'http', false],
+        [union_type.none, '可樂Saiko', 437, 478, 'http', false],
+        [union_type.none, '腕餅', 484, 501, 'http', false],
+        [union_type.none, '重生之我是MVP', 545, 523, 'http', false],
+        [union_type.none, '冷正洋', 561, 532, 'http', false],
+        [union_type.none, 'ทั้มครับ', 29, 423, 'http', false],
+        [union_type.none, '一支穿雲箭', 161, 379, 'http', false],
+        [union_type.none, '貓又海螺', 494, 347, 'http', false],
+        [union_type.none, '小吳 道心操碎', 489, 318, 'http', false],
+        [union_type.none, '媽我錯了別打我', 540, 314, 'http', false],
+        [union_type.none, '肥龍在天', 552, 329, 'http', false],
+        [union_type.none, '九叶明镜', 64, 367, 'http', false],
+        [union_type.none, '𐱸', 63, 343, 'http', false],
+        [union_type.none, '豆腐.', 79, 344, 'http', false],
+        [union_type.none, '青龍軍蟲榮蟲原', 95, 351, 'http', false],
+        [union_type.none, '君士坦丁十一世', 232, 330, 'http', false],
+        [union_type.none, '宣密', 285, 318, 'http', false],
+        [union_type.none, '婕瑜', 389, 332, 'http', false],
+        [union_type.none, '我龜toyota又粗', 411, 266, 'http', false],
+        [union_type.none, '小龍龍', 474, 231, 'http', false],
+        [union_type.none, '佳諺', 484, 216, 'http', false],
+        [union_type.none, '我只想耕田', 541, 184, 'http', false],
+        [union_type.none, '特殊工作隊', 585, 185, 'http', false],
+        [union_type.none, '大茄水竹葉', 63, 222, 'http', false],
+        [union_type.none, 'hawimau', 48, 226, 'http', false],
+        [union_type.none, 'Beo', 575, 293, 'http', false],
+        [union_type.none, 'hieu', 586, 393, 'http', false],
+        [union_type.none, 'Maro Y', 563, 502, 'http', false],
+        [union_type.none, 'PrinceWew', 540, 470, 'http', false],
+        [union_type.none, 'MTrung', 577, 536, 'http', false],
+        [union_type.none, 'New Battle', 391, 456, 'http', false],
+        [union_type.none, 'NoahNoah', 404, 438, 'http', false],
+        [union_type.none, 'Kato VN', 166, 332, 'http', false],
+        [union_type.none, '14VN', 578, 253, 'http', false],
+        [union_type.none, 'D763n', 538, 271, 'http', false],
+        [union_type.none, 'Arthurn', 572, 268, 'http', false],
+        [union_type.none, 'Ryder', 587, 449, 'http', false],
+        [union_type.none, 'Chun And Lin', 553, 388, 'http', false],
+        [union_type.none, 'FridayLeeHNT', 437, 337, 'http', false],
+        [union_type.none, 'Qin Ruo', 430, 366, 'http', false],
+        [union_type.none, 'Moil', 398, 369, 'http', false],
+        [union_type.none, '7in', 411, 406, 'http', false],
+        [union_type.none, 'Nhoi', 523, 468, 'http', false],
+        [union_type.none, 'noobfighter', 472, 269, 'http', false],
+        [union_type.none, 'forth3000', 589, 303, 'http', false],
+        [union_type.none, 'HM Kingdom', 590, 360, 'http', false],
+        [union_type.none, 'pawner', 573, 371, 'http', false],
+        [union_type.none, 'HGN', 587, 378, 'http', false],
+        [union_type.none, 'xiao Ba', 465, 371, 'http', false],
+        [union_type.none, '0din', 487, 362, 'http', false],
+        [union_type.none, 'OHOLA', 550, 405, 'http', false],
+        [union_type.none, 'DICK DESTROYER', 539, 386, 'http', false],
+        [union_type.none, 'Ke Da Tai', 529, 404, 'http', false],
+        [union_type.none, 'Tonnumm', 507, 437, 'http', false],
+        [union_type.none, 'Fenwe', 508, 394, 'http', false],
+        [union_type.none, 'CHECKKKKKK', 455, 457, 'http', false] 
+
 
     ]
 
@@ -408,3 +478,4 @@ function search_position() {
     }
     search(player_nike_name);
 }
+  
