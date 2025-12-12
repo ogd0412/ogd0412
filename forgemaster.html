@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+    <title>문어단 전투력 랭킹</title>
+     
+    <style>
+        /* 기본 */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            min-height: 100vh; /* viewport 최소 높이 보장 */
+            background: linear-gradient(135deg, #5fa049, #88c065);
+            background-attachment: fixed; /* 배경 고정해서 스크롤 시 어색함 완화 */
+            font-family: "Pretendard", Arial, sans-serif;
+        }
+
+        /* 상단 제목 */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 58px;
+                font-weight: 900;
+                color: white;
+                letter-spacing: 2px;
+                text-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            }
+
+        /* 카드들이 들어갈 영역 - 단일 선언 (중복 금지) */
+        #container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 40px 20px 220px; /* <-- 아래 여백 충분히 확보 (220px) */
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* 카드 스타일 */
+        .card {
+            position: relative;
+            /* 살짝 투명하게 하면 배경과 더 자연스럽게 연결됨 */
+            background: rgba(255,255,255,0.98); /* 완전 흰색 대신 약간 투명 */
+            border-radius: 16px;
+            padding: 28px 32px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            border: 1px solid rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* 라벨 */
+        .card-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            padding: 6px 15px;
+            background: #ffeb90;
+            color: #664200;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        /* 프로필 이미지 */
+        .icon {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+        }
+
+        .name {
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .score {
+            font-size: 38px;
+            font-weight: 800;
+            color: #254816;
+            margin-left: auto;
+            text-shadow: 0 1px 2px rgba(10,102,194,0.2);
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* 모바일 대응 (선택) */
+        @media (max-width: 720px) {
+            header h1 {
+                font-size: 30px;
+                padding: 10px;
+            }
+
+            .card {
+                padding: 18px;
+                gap: 12px;
+                border-radius: 12px;
+            }
+
+            .icon {
+                width: 72px;
+                height: 72px;
+                border-radius: 10px;
+            }
+
+            .name {
+                font-size: 20px;
+            }
+
+            .score {
+                font-size: 20px;
+            }
+
+            #container {
+                max-width: 95%;
+                padding-bottom: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>문어단 전투력 랭킹 순위</h1>
+    </header>
+
+    <div id="container"></div>
+
+    <script>
+        const people = [
+            { name: '민수', score: 1000, label: 'A등급' },
+            { name: '수진', score: 1500, label: 'VIP' },
+            { name: '영수', score: 900, label: 'NEW' },
+            { name: '지우', score: 2000, label: 'TOP' }
+        ];
+
+        people.sort((a, b) => b.score - a.score);
+
+        const container = document.getElementById('container');
+
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function formatScore(num) {
+            if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(1).replace(/\.0$/, '') + 'B';
+            if (num >= 1_000_000) return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+            if (num >= 1_000) return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+            return num.toString();
+        }
+
+        for (let i = 0; i < people.length; i++) {
+            const p = people[i];
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            card.innerHTML = `
+                    <div class="card-label">${p.label}</div>
+                    <img class="icon" src="https://postfiles.pstatic.net/MjAyNTEyMTNfMTUw/MDAxNzY1NTYwNTQ5NTc1.2u-kkwTLqgQpxjdyCfstDC30N5WsP9ax65buf8uJ8O0g.T7FNU11Ss8gHqirELS-bHj9MVLOoKm9Yf5rJoCW695Ug.JPEG/Screenshot_20251213_020755_Forge_Master.jpg?type=w3840" />
+                    <div class="name">${i + 1}. ${escapeHtml(p.name)}</div>
+                    <div class="score">${formatScore(p.score)}</div>
+                `;
+            container.appendChild(card);
+        }
+    </script>
+</body>
+</html>
