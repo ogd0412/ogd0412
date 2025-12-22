@@ -2,7 +2,26 @@
 <html>
 <head>
     <title>문어단 전투력 랭킹</title>
+
+    <div class="top-bar">
+        <div class="menu-btn" id="menuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1>문어단 전투력 랭킹 순위</h1>
+    </div>
+
+    <div class="menu-panel" id="menuPanel">
+        <a href="ranking.html">  전투력 랭킹</a>
+        <a href="attendance.html">  출석 현황</a>
+        <a href="notice.html">  공지사항</a>
+        <a href="members.html"> 문어단원 목록</a>
+        <a href="stats.html">  통계 분석</a>
+    </div>
+
      
+
     <style>
         /* 기본 */
         html, body {
@@ -130,6 +149,77 @@
                 padding-bottom: 120px;
             }
         }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* 햄버거 버튼 */
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 28px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .menu-btn span {
+                height: 4px;
+                width: 100%;
+                background: white;
+                border-radius: 3px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            }
+
+        /* 메뉴 패널 */
+        .menu-panel {
+            position: absolute;
+            top: 110px;
+            left: 20px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            padding: 15px 0;
+            width: 220px;
+            display: none;
+            z-index: 999;
+        }
+
+            .menu-panel a {
+                display: block;
+                padding: 14px 20px;
+                text-decoration: none;
+                color: #254816;
+                font-weight: 700;
+                transition: background 0.2s;
+            }
+
+                .menu-panel a:hover {
+                    background: #eef6ea;
+                }
+
+        @media (max-width: 720px) {
+            .menu-btn {
+                left: 12px;
+                width: 32px;
+                height: 24px;
+            }
+
+            .menu-panel {
+                top: 90px;
+                left: 10px;
+                width: calc(100% - 20px);
+                max-width: 320px;
+            }
+        }
     </style>
 </head>
 
@@ -142,148 +232,148 @@
 
     <script>
         const people = [
-           { name: 'ogd0411', score:231000 , label:'NewB_S15'},
-{ name: 'eoajfl', score:1040000 , label:'NewB_S15'},
-{ name: '찍먹날먹', score:432000, label:'NewB_S15'},
-{ name: 'Octopus806', score:138000 , label:'NewB_S15'},
-{ name: 'ikmyeong', score:329000 , label:'NewB_S15'},
-{ name: 'Guest 5229', score:311000, label:'NewB_S15'},
-{ name: 'CANT', score:157000 , label:'NewB_S15'},
-{ name: 'Return', score:143000 , label:'NewB_S15'},
-{ name: 'Guest 389495', score:138000 , label:'NewB_S15'},
-{ name: 'air4s', score:86100 , label:'NewB_S15'},
-{ name: 'Onikyu', score:505000 , label:'NewB_S15'},
-{ name: 'OB', score:303000, label:'NewB_S15'},
-{ name: 'Guest 60762', score:290000 , label:'NewB_S15'},
-{ name: 'Hyun02', score:271000 , label:'NewB_S15'},
-{ name: 'moonuh', score:260000 , label:'NewB_S15'},
-{ name: 'Medding', score:252000 , label:'NewB_S15'},
-{ name: 'Argo', score:239000 , label:'NewB_S15'},
-{ name: 'GnarMaster', score:238000 , label:'NewB_S15'},
-{ name: 'Bigmonkey', score:226000 , label:'NewB_S15'},
-{ name: 'Today', score:222000 , label:'NewB_S15'},
-{ name: 'nalhae', score:220000 , label:'NewB_S15'},
-{ name: 'smmasterkms', score:214000 , label:'NewB_S15'},
-{ name: 'ggojil', score:198000 , label:'NewB_S15'},
-{ name: 'Guest 48767', score:195000, label:'NewB_S15'},
-{ name: 'Guest 11242', score:193000, label:'NewB_S15'},
-{ name: 'Dorosy', score:185000 , label:'NewB_S15'},
-{ name: 'jammanbo', score:184000 , label:'NewB_S15'},
-{ name: 'mmkim63', score:182000, label:'NewB_S15'},
-{ name: 'Guest 97179', score:178000 , label:'NewB_S15'},
-{ name: 'ParkJinYeong', score:175000 , label:'NewB_S15'},
-{ name: 'pushuong', score:163000, label:'NewB_S15'},
-{ name: 'cheeseyumyum', score:155000 , label:'NewB_S15'},
-{ name: 'Guest 38894', score:155000 , label:'NewB_S15'},
-{ name: 'Hyeokyyy', score:155000 , label:'NewB_S15'},
-{ name: 'hyuno', score:152000 , label:'NewB_S15'},
-{ name: 'noahw', score:148000 , label:'NewB_S15'},
-{ name: 'Jindoo', score:146000, label:'NewB_S15'},
-{ name: 'bluepumpkin', score:145000 , label:'NewB_S15'},
-{ name: 'Jain', score:130000, label:'NewB_S15'},
-{ name: 'Guest67209', score:128000, label:'NewB_S15'},
-{ name: 'justpeanut', score:117000 , label:'NewB_S15'},
-{ name: 'soloc', score:105000 , label:'NewB_S15'},
-{ name: 'rua0', score:104000, label:'NewB_S15'},
-{ name: 'Guest 36023', score:103000 , label:'NewB_S15'},
-{ name: 'Guest 79667', score:101000 , label:'NewB_S15'},
-{ name: 'catw', score:91200 , label:'NewB_S15'},
-{ name: 'Guest 23380', score:86700 , label:'NewB_S15'},
-{ name: 'ogd0410', score:34200 , label:'NewB2_S15'},
-{ name: 'FinANcieR', score:432000 , label:'NewB2_S15'},
-{ name: 'parkyongbin', score:332000 , label:'NewB2_S15'},
-{ name: 'namebar', score:308000 , label:'NewB2_S15'},
-{ name: 'Guest 14204', score:270000 , label:'NewB2_S15'},
-{ name: 'Liverpool', score:259000, label:'NewB2_S15'},
-{ name: 'Jesuss', score:257000 , label:'NewB2_S15'},
-{ name: 'nxn', score:198000 , label:'NewB2_S15'},
-{ name: 'Moongtange', score:194000 , label:'NewB2_S15'},
-{ name: 'kingdoms8i', score:162000 , label:'NewB2_S15'},
-{ name: 'Rising', score:150000 , label:'NewB2_S15'},
-{ name: 'byeol', score:149000, label:'NewB2_S15'},
-{ name: '1000202', score:148000 , label:'NewB2_S15'},
-{ name: 'gugu871', score:145000, label:'NewB2_S15'},
-{ name: 'Kayne22', score:142000, label:'NewB2_S15'},
-{ name: 'Guest 72075', score:140000 , label:'NewB2_S15'},
-{ name: 'tjsql', score:140000 , label:'NewB2_S15'},
-{ name: 'McCabe', score:134000 , label:'NewB2_S15'},
-{ name: 'Guest 2921', score:125000 , label:'NewB2_S15'},
-{ name: 'LightTwins', score:124000 , label:'NewB2_S15'},
-{ name: 'LIMETREE', score:122000 , label:'NewB2_S15'},
-{ name: 'Powpo', score:114000 , label:'NewB2_S15'},
-{ name: 'shangus090523', score:114000 , label:'NewB2_S15'},
-{ name: 'chaeuning', score:109000 , label:'NewB2_S15'},
-{ name: 'Guest 42865', score:103000 , label:'NewB2_S15'},
-{ name: 'OKC', score:99600 , label:'NewB2_S15'},
-{ name: 'lilohdong', score:95800, label:'NewB2_S15'},
-{ name: 'K7777', score:88100 , label:'NewB2_S15'},
-{ name: 'GuessMyName', score:85800 , label:'NewB2_S15'},
-{ name: 'Guest 58928', score:84800, label:'NewB2_S15'},
-{ name: 'thisfar', score:84600 , label:'NewB2_S15'},
-{ name: 'Guest 26767', score:82500 , label:'NewB2_S15'},
-{ name: 'boiledegg', score:70800 , label:'NewB2_S15'},
-{ name: 'Guest 23052', score:70800, label:'NewB2_S15'},
-{ name: 'squid6727', score:70400 , label:'NewB2_S15'},
-{ name: 'bongsampark', score:69800 , label:'NewB2_S15'},
-{ name: 'SugarFree', score:63400, label:'NewB2_S15'},
-{ name: '9418', score:62400, label:'NewB2_S15'},
-{ name: 'blackbear', score:61700, label:'NewB2_S15'},
-{ name: 'cOnstant1ne', score:59000 , label:'NewB2_S15'},
-{ name: 'Mcrohmuhyun', score:57300 , label:'NewB2_S15'},
-{ name: 'kaychani', score:56300 , label:'NewB2_S15'},
-{ name: 'MoonO', score:54500 , label:'NewB2_S15'},
-{ name: 'Guest 23959', score:54200 , label:'NewB2_S15'},
-{ name: 'Guest 85147', score:37000, label:'NewB2_S15'},
-{ name: 'NewbieGo', score:664000 , label:'NewB'},
-{ name: 'zil1ot', score:370000 , label:'NewB'},
-{ name: 'Guest 58964', score:579000 , label:'NewB'},
-{ name: '2zolNGAN', score:480000 , label:'NewB'},
-{ name: 'hhiyo', score:478000 , label:'NewB'},
-{ name: 'ddonggo', score:414000 , label:'NewB'},
-{ name: 'Jollieman', score:371000 , label:'NewB'},
-{ name: 'ogd0412', score:247000 , label:'NewB'},
-{ name: 'tussbbaik', score:598000 , label:'NewB'},
-{ name: 'mmmmjun', score:445000, label:'NewB'},
-{ name: 'KimMeonJi', score:1350000 , label:'NewB'},
-{ name: 'ssik', score:908000, label:'NewB'},
-{ name: 'tsunami', score:665000 , label:'NewB'},
-{ name: 'Minan', score:626000, label:'NewB'},
-{ name: 'Koreandude', score:615000 , label:'NewB'},
-{ name: 'woonie', score:560000 , label:'NewB'},
-{ name: 'Moru', score:534000, label:'NewB'},
-{ name: '58119', score:497000 , label:'NewB'},
-{ name: 'choonbong', score:479000 , label:'NewB'},
-{ name: 'Mooone', score:451000 , label:'NewB'},
-{ name: 'Cassman', score:444000 , label:'NewB'},
-{ name: 'Guest 44516', score:438000 , label:'NewB'},
-{ name: 'dreamtrip', score:428000, label:'NewB'},
-{ name: 'HoobieGo', score:424000 , label:'NewB'},
-{ name: 'kyoungmin', score:416000 , label:'NewB'},
-{ name: 'HEEHEE', score:414000 , label:'NewB'},
-{ name: 'cocodoco', score:408000 , label:'NewB'},
-{ name: 'DanteAlighieri', score:406000 , label:'NewB'},
-{ name: 'tonks08', score:371000 , label:'NewB'},
-{ name: 'dotolee', score:362000 , label:'NewB'},
-{ name: 'Guest 39717', score:349000 , label:'NewB'},
-{ name: 'sggubbi', score:348000 , label:'NewB'},
-{ name: 'TheFoolKing', score:346000 , label:'NewB'},
-{ name: 'Jejus', score:341000 , label:'NewB'},
-{ name: 'SickDucker', score:337000 , label:'NewB'},
-{ name: 'Guest 93233', score:332000 , label:'NewB'},
-{ name: 'NeilSoStrong', score:311000 , label:'NewB'},
-{ name: 'satosu', score:333000 , label:'NewB'},
-{ name: 'gogilatte', score:292000 , label:'NewB'},
-{ name: 'Greedly', score:291000 , label:'NewB'},
-{ name: 'kromt', score:290000 , label:'NewB'},
-{ name: 'leontius', score:260000, label:'NewB'},
-{ name: 'yebum', score:255000, label:'NewB'},
-{ name: 'silksong', score:224000 , label:'NewB'},
-{ name: 'kikiik', score:222000, label:'NewB'},
-{ name: 'Dragonite', score:219000, label:'NewB'},
-{ name: 'Jayken', score:192000 , label:'NewB'},
-{ name: 'imjunseo1119', score:172000 , label:'NewB'},
-{ name: 'SOHC', score:156000 , label:'NewB'}, 
-{ name: 'Hamnam', score:178000 , label:'NewB_S15'} 
+            { name: 'ogd0411', score: 231000, label: 'NewB_S15' },
+            { name: 'eoajfl', score: 1040000, label: 'NewB_S15' },
+            { name: '찍먹날먹', score: 432000, label: 'NewB_S15' },
+            { name: 'Octopus806', score: 138000, label: 'NewB_S15' },
+            { name: 'ikmyeong', score: 329000, label: 'NewB_S15' },
+            { name: 'Guest 5229', score: 311000, label: 'NewB_S15' },
+            { name: 'CANT', score: 157000, label: 'NewB_S15' },
+            { name: 'Return', score: 143000, label: 'NewB_S15' },
+            { name: 'Guest 389495', score: 138000, label: 'NewB_S15' },
+            { name: 'air4s', score: 86100, label: 'NewB_S15' },
+            { name: 'Onikyu', score: 505000, label: 'NewB_S15' },
+            { name: 'OB', score: 303000, label: 'NewB_S15' },
+            { name: 'Guest 60762', score: 290000, label: 'NewB_S15' },
+            { name: 'Hyun02', score: 271000, label: 'NewB_S15' },
+            { name: 'moonuh', score: 260000, label: 'NewB_S15' },
+            { name: 'Medding', score: 252000, label: 'NewB_S15' },
+            { name: 'Argo', score: 239000, label: 'NewB_S15' },
+            { name: 'GnarMaster', score: 238000, label: 'NewB_S15' },
+            { name: 'Bigmonkey', score: 226000, label: 'NewB_S15' },
+            { name: 'Today', score: 222000, label: 'NewB_S15' },
+            { name: 'nalhae', score: 220000, label: 'NewB_S15' },
+            { name: 'smmasterkms', score: 214000, label: 'NewB_S15' },
+            { name: 'ggojil', score: 198000, label: 'NewB_S15' },
+            { name: 'Guest 48767', score: 195000, label: 'NewB_S15' },
+            { name: 'Guest 11242', score: 193000, label: 'NewB_S15' },
+            { name: 'Dorosy', score: 185000, label: 'NewB_S15' },
+            { name: 'jammanbo', score: 184000, label: 'NewB_S15' },
+            { name: 'mmkim63', score: 182000, label: 'NewB_S15' },
+            { name: 'Guest 97179', score: 178000, label: 'NewB_S15' },
+            { name: 'ParkJinYeong', score: 175000, label: 'NewB_S15' },
+            { name: 'pushuong', score: 163000, label: 'NewB_S15' },
+            { name: 'cheeseyumyum', score: 155000, label: 'NewB_S15' },
+            { name: 'Guest 38894', score: 155000, label: 'NewB_S15' },
+            { name: 'Hyeokyyy', score: 155000, label: 'NewB_S15' },
+            { name: 'hyuno', score: 152000, label: 'NewB_S15' },
+            { name: 'noahw', score: 148000, label: 'NewB_S15' },
+            { name: 'Jindoo', score: 146000, label: 'NewB_S15' },
+            { name: 'bluepumpkin', score: 145000, label: 'NewB_S15' },
+            { name: 'Jain', score: 130000, label: 'NewB_S15' },
+            { name: 'Guest67209', score: 128000, label: 'NewB_S15' },
+            { name: 'justpeanut', score: 117000, label: 'NewB_S15' },
+            { name: 'soloc', score: 105000, label: 'NewB_S15' },
+            { name: 'rua0', score: 104000, label: 'NewB_S15' },
+            { name: 'Guest 36023', score: 103000, label: 'NewB_S15' },
+            { name: 'Guest 79667', score: 101000, label: 'NewB_S15' },
+            { name: 'catw', score: 91200, label: 'NewB_S15' },
+            { name: 'Guest 23380', score: 86700, label: 'NewB_S15' },
+            { name: 'ogd0410', score: 34200, label: 'NewB2_S15' },
+            { name: 'FinANcieR', score: 432000, label: 'NewB2_S15' },
+            { name: 'parkyongbin', score: 332000, label: 'NewB2_S15' },
+            { name: 'namebar', score: 308000, label: 'NewB2_S15' },
+            { name: 'Guest 14204', score: 270000, label: 'NewB2_S15' },
+            { name: 'Liverpool', score: 259000, label: 'NewB2_S15' },
+            { name: 'Jesuss', score: 257000, label: 'NewB2_S15' },
+            { name: 'nxn', score: 198000, label: 'NewB2_S15' },
+            { name: 'Moongtange', score: 194000, label: 'NewB2_S15' },
+            { name: 'kingdoms8i', score: 162000, label: 'NewB2_S15' },
+            { name: 'Rising', score: 150000, label: 'NewB2_S15' },
+            { name: 'byeol', score: 149000, label: 'NewB2_S15' },
+            { name: '1000202', score: 148000, label: 'NewB2_S15' },
+            { name: 'gugu871', score: 145000, label: 'NewB2_S15' },
+            { name: 'Kayne22', score: 142000, label: 'NewB2_S15' },
+            { name: 'Guest 72075', score: 140000, label: 'NewB2_S15' },
+            { name: 'tjsql', score: 140000, label: 'NewB2_S15' },
+            { name: 'McCabe', score: 134000, label: 'NewB2_S15' },
+            { name: 'Guest 2921', score: 125000, label: 'NewB2_S15' },
+            { name: 'LightTwins', score: 124000, label: 'NewB2_S15' },
+            { name: 'LIMETREE', score: 122000, label: 'NewB2_S15' },
+            { name: 'Powpo', score: 114000, label: 'NewB2_S15' },
+            { name: 'shangus090523', score: 114000, label: 'NewB2_S15' },
+            { name: 'chaeuning', score: 109000, label: 'NewB2_S15' },
+            { name: 'Guest 42865', score: 103000, label: 'NewB2_S15' },
+            { name: 'OKC', score: 99600, label: 'NewB2_S15' },
+            { name: 'lilohdong', score: 95800, label: 'NewB2_S15' },
+            { name: 'K7777', score: 88100, label: 'NewB2_S15' },
+            { name: 'GuessMyName', score: 85800, label: 'NewB2_S15' },
+            { name: 'Guest 58928', score: 84800, label: 'NewB2_S15' },
+            { name: 'thisfar', score: 84600, label: 'NewB2_S15' },
+            { name: 'Guest 26767', score: 82500, label: 'NewB2_S15' },
+            { name: 'boiledegg', score: 70800, label: 'NewB2_S15' },
+            { name: 'Guest 23052', score: 70800, label: 'NewB2_S15' },
+            { name: 'squid6727', score: 70400, label: 'NewB2_S15' },
+            { name: 'bongsampark', score: 69800, label: 'NewB2_S15' },
+            { name: 'SugarFree', score: 63400, label: 'NewB2_S15' },
+            { name: '9418', score: 62400, label: 'NewB2_S15' },
+            { name: 'blackbear', score: 61700, label: 'NewB2_S15' },
+            { name: 'cOnstant1ne', score: 59000, label: 'NewB2_S15' },
+            { name: 'Mcrohmuhyun', score: 57300, label: 'NewB2_S15' },
+            { name: 'kaychani', score: 56300, label: 'NewB2_S15' },
+            { name: 'MoonO', score: 54500, label: 'NewB2_S15' },
+            { name: 'Guest 23959', score: 54200, label: 'NewB2_S15' },
+            { name: 'Guest 85147', score: 37000, label: 'NewB2_S15' },
+            { name: 'NewbieGo', score: 664000, label: 'NewB' },
+            { name: 'zil1ot', score: 370000, label: 'NewB' },
+            { name: 'Guest 58964', score: 579000, label: 'NewB' },
+            { name: '2zolNGAN', score: 480000, label: 'NewB' },
+            { name: 'hhiyo', score: 478000, label: 'NewB' },
+            { name: 'ddonggo', score: 414000, label: 'NewB' },
+            { name: 'Jollieman', score: 371000, label: 'NewB' },
+            { name: 'ogd0412', score: 247000, label: 'NewB' },
+            { name: 'tussbbaik', score: 598000, label: 'NewB' },
+            { name: 'mmmmjun', score: 445000, label: 'NewB' },
+            { name: 'KimMeonJi', score: 1350000, label: 'NewB' },
+            { name: 'ssik', score: 908000, label: 'NewB' },
+            { name: 'tsunami', score: 665000, label: 'NewB' },
+            { name: 'Minan', score: 626000, label: 'NewB' },
+            { name: 'Koreandude', score: 615000, label: 'NewB' },
+            { name: 'woonie', score: 560000, label: 'NewB' },
+            { name: 'Moru', score: 534000, label: 'NewB' },
+            { name: '58119', score: 497000, label: 'NewB' },
+            { name: 'choonbong', score: 479000, label: 'NewB' },
+            { name: 'Mooone', score: 451000, label: 'NewB' },
+            { name: 'Cassman', score: 444000, label: 'NewB' },
+            { name: 'Guest 44516', score: 438000, label: 'NewB' },
+            { name: 'dreamtrip', score: 428000, label: 'NewB' },
+            { name: 'HoobieGo', score: 424000, label: 'NewB' },
+            { name: 'kyoungmin', score: 416000, label: 'NewB' },
+            { name: 'HEEHEE', score: 414000, label: 'NewB' },
+            { name: 'cocodoco', score: 408000, label: 'NewB' },
+            { name: 'DanteAlighieri', score: 406000, label: 'NewB' },
+            { name: 'tonks08', score: 371000, label: 'NewB' },
+            { name: 'dotolee', score: 362000, label: 'NewB' },
+            { name: 'Guest 39717', score: 349000, label: 'NewB' },
+            { name: 'sggubbi', score: 348000, label: 'NewB' },
+            { name: 'TheFoolKing', score: 346000, label: 'NewB' },
+            { name: 'Jejus', score: 341000, label: 'NewB' },
+            { name: 'SickDucker', score: 337000, label: 'NewB' },
+            { name: 'Guest 93233', score: 332000, label: 'NewB' },
+            { name: 'NeilSoStrong', score: 311000, label: 'NewB' },
+            { name: 'satosu', score: 333000, label: 'NewB' },
+            { name: 'gogilatte', score: 292000, label: 'NewB' },
+            { name: 'Greedly', score: 291000, label: 'NewB' },
+            { name: 'kromt', score: 290000, label: 'NewB' },
+            { name: 'leontius', score: 260000, label: 'NewB' },
+            { name: 'yebum', score: 255000, label: 'NewB' },
+            { name: 'silksong', score: 224000, label: 'NewB' },
+            { name: 'kikiik', score: 222000, label: 'NewB' },
+            { name: 'Dragonite', score: 219000, label: 'NewB' },
+            { name: 'Jayken', score: 192000, label: 'NewB' },
+            { name: 'imjunseo1119', score: 172000, label: 'NewB' },
+            { name: 'SOHC', score: 156000, label: 'NewB' },
+            { name: 'Hamnam', score: 178000, label: 'NewB_S15' }
         ];
 
         people.sort((a, b) => b.score - a.score);
@@ -311,18 +401,34 @@
             card.className = 'card';
 
             card.innerHTML = `
-                    <div class="card-label">${p.label}</div>
-                    <img class="icon" src="https://raw.githubusercontent.com/ogd0412/ogd0412/main/profile.jpg" />
-                    <div class="name">${i + 1}. ${escapeHtml(p.name)}</div>
-                    <div class="score">${formatScore(p.score)}</div>
-                `;
+                        <div class="card-label">${p.label}</div>
+                        <img class="icon" src="https://raw.githubusercontent.com/ogd0412/ogd0412/main/profile.jpg" />
+                        <div class="name">${i + 1}. ${escapeHtml(p.name)}</div>
+                        <div class="score">${formatScore(p.score)}</div>
+                    `;
             container.appendChild(card);
         }
+
+        const menuBtn = document.getElementById('menuBtn');
+        const menuPanel = document.getElementById('menuPanel');
+
+        menuBtn.addEventListener('click', () => {
+            menuPanel.style.display =
+                menuPanel.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // 바깥 클릭 시 닫기
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
+                menuPanel.style.display = 'none';
+            }
+        });
+
+
+
     </script>
 </body>
 </html>
-
-
 
 
 
